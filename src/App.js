@@ -4,7 +4,7 @@ import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import CustomDrawer from './components/CustomDrawer';
 import MenuScreen111 from './screens/MenuScreen111';
-import MenuScreen112 from '../MenuScreen112';
+import MenuScreen112 from './screens/MenuScreen112';
 import MenuScreen2 from './screens/MenuScreen2';
 import MenuScreen12 from './screens/MenuScreen12';
 
@@ -33,10 +33,6 @@ const App = () => {
     setCurrentScreen(screen);
     toggleDrawer();
     setSelectedMenu(menu);
-  };
-
-  const handleMenuExpand = (expandedMenus) => {
-    setExpandedMenus(expandedMenus);
   };
 
   return (

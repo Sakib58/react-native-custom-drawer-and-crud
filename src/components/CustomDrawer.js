@@ -17,7 +17,6 @@ const CustomDrawer = ({ navigation, menuData, onClose, selectedMenu, onMenuSelec
 
   const toggleSubMenu = (id) => {
     setLocalExpandedMenus((prevMenus) => {
-      console.log(prevMenus, id)
       if (prevMenus.includes(id)) {
         return prevMenus.filter((menuId) => menuId !== id);
       } else {
