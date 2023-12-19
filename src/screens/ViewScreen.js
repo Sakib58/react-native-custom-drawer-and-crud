@@ -1,8 +1,18 @@
-import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import {React, useEffect} from 'react';
+import { View, Text, StyleSheet, SafeAreaView, BackHandler } from 'react-native';
 
-const ViewScreen = ({ props }) => {
-    console.log(props)
+const ViewScreen = ({ props, setCurrentScreen }) => {
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      () => {
+        setCurrentScreen('Home');
+        return true;
+      }
+    );
+
+    return () => backHandler.remove();
+  }, [setCurrentScreen]);
   return (
     <SafeAreaView  style={styles.card}>
       <View style={styles.header}>

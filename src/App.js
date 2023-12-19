@@ -87,7 +87,7 @@ const App = () => {
       ) : currentScreen === 'MenuScreen12' ? (
         <MenuScreen12 navigation={{ replace: setCurrentScreen }} />
       ) : currentScreen === 'ViewScreen' ? (
-        <ViewScreen props = {props} navigation={{ replace: setCurrentScreen}} />
+        <ViewScreen setCurrentScreen={setCurrentScreen} props = {props} navigation={{ replace: setCurrentScreen}} />
       ) : currentScreen === 'UpdateScreen' ? (
         <UpdateScreen props={props} setCurrentScreen={setCurrentScreen} navigation={{ replace: setCurrentScreen }} />
       ) : (

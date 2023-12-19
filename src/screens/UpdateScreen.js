@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   ScrollView,
@@ -7,7 +7,8 @@ import {
   SafeAreaView,
   Text,
   TextInput,
-  Button
+  Button,
+  BackHandler
 } from 'react-native';
 
 import { openDatabase } from 'react-native-sqlite-storage';
@@ -18,6 +19,18 @@ const UpdateScreen = ({ props, setCurrentScreen }) => {
   let [id, setId] = useState(props.id);
   let [author, setAuthor] = useState(props.author);
   let [post, setPost] = useState(props.post);
+
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      () => {
+        setCurrentScreen('Home');
+        return true;
+      }
+    );
+
+    return () => backHandler.remove();
+  }, [setCurrentScreen]);
 
   let updatePost = () => {
     console.log(id, author, post);
