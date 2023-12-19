@@ -62,7 +62,18 @@ const App = () => {
     toggleDrawer();
     setSelectedMenu(menu);
   };
-  console.log(currentScreen);
+  
+  const screenComponents = {
+    Login: <LoginScreen navigation={{ replace: setCurrentScreen }} />,
+    Home: <HomeScreen setProps={setProps} setCurrentScreen={setCurrentScreen} navigation={{ replace: setCurrentScreen }} />,
+    MenuScreen112: <MenuScreen112 navigation={{ replace: setCurrentScreen }} />,
+    MenuScreen111: <MenuScreen111 navigation={{ replace: setCurrentScreen }} />,
+    MenuScreen2: <MenuScreen2 navigation={{ replace: setCurrentScreen }} />,
+    MenuScreen12: <MenuScreen12 navigation={{ replace: setCurrentScreen }} />,
+    ViewScreen: <ViewScreen setCurrentScreen={setCurrentScreen} props={props} navigation={{ replace: setCurrentScreen }} />,
+    UpdateScreen: <UpdateScreen props={props} setCurrentScreen={setCurrentScreen} navigation={{ replace: setCurrentScreen }} />,
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <View style={styles.topBar}>
@@ -74,25 +85,7 @@ const App = () => {
         <Text style={styles.headerText}>{currentScreen}</Text>
       </View>
 
-      {currentScreen === 'Login' ? (
-        <LoginScreen navigation={{ replace: setCurrentScreen }} />
-      ) : currentScreen === 'Home' ? (
-        <HomeScreen setProps={setProps} setCurrentScreen={setCurrentScreen} navigation={{ replace: setCurrentScreen }} />
-      ) : currentScreen === 'MenuScreen112' ? (
-        <MenuScreen112 navigation={{ replace: setCurrentScreen }} />
-      ) : currentScreen === 'MenuScreen111' ? (
-        <MenuScreen111 navigation={{ replace: setCurrentScreen }} />
-      ) : currentScreen === 'MenuScreen2' ? (
-        <MenuScreen2 navigation={{ replace: setCurrentScreen }} />
-      ) : currentScreen === 'MenuScreen12' ? (
-        <MenuScreen12 navigation={{ replace: setCurrentScreen }} />
-      ) : currentScreen === 'ViewScreen' ? (
-        <ViewScreen setCurrentScreen={setCurrentScreen} props = {props} navigation={{ replace: setCurrentScreen}} />
-      ) : currentScreen === 'UpdateScreen' ? (
-        <UpdateScreen props={props} setCurrentScreen={setCurrentScreen} navigation={{ replace: setCurrentScreen }} />
-      ) : (
-        null
-      )}
+      {screenComponents[currentScreen]}
 
       {isDrawerOpen && (
         <CustomDrawer
