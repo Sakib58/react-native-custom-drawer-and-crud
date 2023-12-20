@@ -72,11 +72,12 @@ const CustomDrawer = ({ navigation, menuData, onClose, selectedMenu, onMenuSelec
 };
 
 const styles = StyleSheet.create({
+  // Custom drawer styles
   container: {
     position: 'absolute',
     left: 0,
-    top: 48,
-    width: 250,
+    top: 0,
+    width: '60%',
     height: '100%',
     backgroundColor: '#fff',
     padding: 20,
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)', // change last param to change the opacity of background
   },
   menuItem: {
     paddingVertical: 10,
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
   },
   selectedMenuItem: {
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#e0e0e0', // Selected menu color
   },
 });
 
